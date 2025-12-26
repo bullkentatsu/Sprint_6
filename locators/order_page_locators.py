@@ -18,5 +18,6 @@ class OrderPageLocators:
 
     COMMENT = (By.XPATH, "//*[@placeholder='Комментарий для курьера']")
     ORDER_BUTTON = (By.XPATH, "(//button[normalize-space(text())='Заказать'])[last()]")
+
     YES_BUTTON = (By.XPATH, "//button[normalize-space(text())='Да']")
-    SUCCESS_TEXT = (By.XPATH, "//*[contains(text(),'Заказ оформлен')]")
+    SUCCESS_MODAL_HEADER = (By.XPATH, "//div[contains(@class,'Order_ModalHeader')]")

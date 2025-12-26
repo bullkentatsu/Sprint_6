@@ -1,8 +1,12 @@
+from constants import BASE_URL, DZEN_DOMAIN_PART
 from pages.base_page import BasePage
 from locators.main_page_locators import MainPageLocators
 
 
 class MainPage(BasePage):
+    def open_main(self):
+        self.open(BASE_URL)
+
     def open_answer(self, question_locator):
         self.scroll_to(question_locator)
         self.click(question_locator)
@@ -20,5 +24,9 @@ class MainPage(BasePage):
     def click_scooter_logo(self):
         self.click(MainPageLocators.SCOOTER_LOGO)
 
-    def click_yandex_logo(self):
+    def open_dzen_from_yandex_logo(self):
         self.click(MainPageLocators.YANDEX_LOGO)
+        self.wait_windows_count(2)
+        self.switch_to_window(1)
+        self.wait_url_contains(DZEN_DOMAIN_PART)
+        return self.current_url()
